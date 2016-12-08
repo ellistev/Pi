@@ -13,9 +13,9 @@ char_to_ix = { ch:i for i,ch in enumerate(chars) }
 ix_to_char = { i:ch for i,ch in enumerate(chars) }
 
 # hyperparameters
-hidden_size = 200 # size of hidden layer of neurons
+hidden_size = 512 # size of hidden layer of neurons
 seq_length = 25 # number of steps to unroll the RNN for
-learning_rate = 1e-1
+learning_rate = 1e-2
 
 # model parameters
 Wxh = np.random.randn(hidden_size, vocab_size)*0.01 # input to hidden

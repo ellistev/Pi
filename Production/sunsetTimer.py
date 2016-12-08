@@ -4,6 +4,7 @@ import json
 from threading import Timer
 from datetime import datetime, timedelta
 from sendSms import sendMessage
+from transmit import transmit_code
 
 a_on = '1110101011100010111111000'  #works for 4 on
 a_off = '1110101011100010111100110' #works for 4 off

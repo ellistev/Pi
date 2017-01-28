@@ -81,8 +81,9 @@ if __name__ == '__main__':
     # here we build the dictionary for our request data
     # that we will convert to JSON
     request_dict = {
-            'SimilarityThreshold': 75.0,
-            'SourceImage': {
+			'MinConfidence': 0.5,
+            'MaxLabels': 10,
+            'Image': {
                 'Bytes': source_bytes
             }
             #'TargetImage': {

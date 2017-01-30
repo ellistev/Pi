@@ -3,7 +3,7 @@ import json
 import calendar
 from datetime import datetime, timedelta
 
-_token = "xoxp-4083208737-20033966023-132915462035-078b6cfaf873bbbda75324a72c8fa706"
+_token = "token"
 _domain = "atca"
 
 if __name__ == '__main__':

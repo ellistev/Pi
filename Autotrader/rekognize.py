@@ -26,8 +26,8 @@ def getSignatureKey(key, date_stamp, regionName, serviceName):
 
 if __name__ == '__main__':
     # Read credentials from the environment
-    access_key = 'AKIAJ6MO5R5PDUKQ72KA'
-    secret_key = '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'
+    access_key = 'key'
+    secret_key = 'key'
 
     # Uncomment this line if you use temporary credentials via STS or similar
     #token = os.environ.get('AWS_SESSION_TOKEN')
@@ -71,7 +71,7 @@ if __name__ == '__main__':
     signed_headers = 'content-type;host;x-amz-date;x-amz-target'
 
     # Our source image: http://i.imgur.com/OK8aDRq.jpg
-    with open('npv/atv.png', 'rb') as source_image:
+    with open('npv/image-4.jpg', 'rb') as source_image:
         source_bytes = base64.b64encode(source_image.read())
 
     # Our target image: http://i.imgur.com/Xchqm1r.jpg

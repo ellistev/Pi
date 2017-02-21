@@ -1,9 +1,9 @@
 import concurrent.futures
 import urllib.request
 
-carname = 'toyota_corolla'
+carname = 'volkswagen_golf'
 filename = ''
-lines = tuple(open('corolla.txt', 'r'))
+lines = tuple(open('volkswagen_golf.txt', 'r'))
 photohelperurl = 'http://az413908.vo.msecnd.net'
 underscore = '_'
 

@@ -1,9 +1,9 @@
 import concurrent.futures
 import urllib.request
 
-carname = 'toyota_rav4'
+carname = 'toyota_corolla'
 filename = ''
-lines = tuple(open('toyota_rav4.txt', 'r'))
+lines = tuple(open('toyota_corolla.txt', 'r'))
 photohelperurl = 'http://az413908.vo.msecnd.net'
 underscore = '_'
 
@@ -13,5 +13,5 @@ def getimg(count):
     #URLS[count] = localpath
 
 with concurrent.futures.ThreadPoolExecutor(max_workers=50) as e:
-    for i in range(24550):
+    for i in range(58713):
         e.submit(getimg, i)

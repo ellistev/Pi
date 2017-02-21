@@ -1,7 +1,7 @@
 import numpy as np
 import tensorflow as tf
 
-imagePath = 'D:/Code/Pi/Autotrader/label_image/prepared_images/dodge_caravan/dodge_caravan_130.jpg'
+imagePath = 'D:/Code/prepared_images/dodge_caravan/dodge_caravan_174.jpg'
 modelFullPath = '/tmp/output_graph.pb'
 labelsFullPath = '/tmp/output_labels.txt'
 

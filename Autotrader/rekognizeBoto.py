@@ -7,8 +7,8 @@ import json
 
 client = boto3.client('rekognition')
 
-with open('/datadrive/prepared_photos_lite/ford_fiesta/ford_fiesta_10.jpg', 'rb') as source_image:
-    source_bytes = base64.b64encode(source_image.read())
+with open('/datadrive/prepared_photos_lite/ford_fiesta/ford_fiesta_4.jpg', 'rb') as source_image:
+    source_bytes = source_image.read()
 
 response = client.detect_labels(
     Image={
@@ -18,7 +18,8 @@ response = client.detect_labels(
     MinConfidence=0.5
 )
 
-formatted_text = json.dumps(json.loads(response.text), indent=4, sort_keys=True)
+#jsonResponse = json.load(response)
+labels = response["Labels"]
+formatted_text = json.dumps(labels, indent=4, sort_keys=True)
 
-print('Response code: {}\n'.format(response.status_code))
 print('Response body:\n{}'.format(formatted_text))

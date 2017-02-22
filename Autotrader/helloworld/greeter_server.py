@@ -45,6 +45,15 @@ class Greeter(helloworld_pb2_grpc.GreeterServicer):
   def SayHello(self, request, context):
     return helloworld_pb2.HelloReply(message='Hello, %s!' % request.name)
 
+  def SayHelloAgain(self, request, context):
+    return helloworld_pb2.HelloReply(message='Hello again, %s!' % request.name)
+
+  def Category(self, request, context):
+    return helloworld_pb2.CategoryReply(message='The Category is, %s!' % request.name)
+
+  def MakeModel(self, request, context):
+    return helloworld_pb2.MakeModelReply(message='The Make Model is, %s!' % request.name)
+
 
 def serve():
   server = grpc.server(futures.ThreadPoolExecutor(max_workers=10))

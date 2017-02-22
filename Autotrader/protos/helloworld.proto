@@ -40,7 +40,33 @@ package helloworld;
 service Greeter {
   // Sends a greeting
   rpc SayHello (HelloRequest) returns (HelloReply) {}
+  rpc SayHelloAgain (HelloRequest) returns (HelloReply) {}
+  rpc Category (CategoryRequest) returns (CategoryReply) {}
+  rpc MakeModel (MakeModelRequest) returns (MakeModelReply) {}
 }
+
+
+// The request message containing the user's name.
+message CategoryRequest {
+  string name = 1;
+}
+
+// The response message containing the greetings
+message CategoryReply {
+  string message = 1;
+}
+
+
+// The request message containing the user's name.
+message MakeModelRequest {
+  string name = 1;
+}
+
+// The response message containing the greetings
+message MakeModelReply {
+  string message = 1;
+}
+
 
 // The request message containing the user's name.
 message HelloRequest {

@@ -1,11 +1,14 @@
 from flask import Flask, request
 from flask_restful import Resource, Api
 from json import dumps
-
-# Create a engine for connecting to SQLite3.
-# Assuming salaries.db is in your app root folder
-
-#e = create_engine('sqlite:///salaries.db')
+import boto3
+import base64
+import datetime
+import hashlib
+import hmac
+import json
+import urllib, cStringIO
+from PIL import Image
 
 app = Flask(__name__)
 api = Api(app)
@@ -13,11 +16,28 @@ api = Api(app)
 
 class Category(Resource):
     def get(self, photoUrl):
-        # Connect to databse
-        #conn = e.connect()
-        # Perform query and return JSON data
-        #query = conn.execute("select distinct DEPARTMENT from salaries")
-        return {'category': photoUrl} #[i[0] for i in query.cursor.fetchall()]}
+        client = boto3.client('rekognition')
+        photohelperurl = 'http://az413908.vo.msecnd.net'
+        underscore = '_'
+
+        file = cStringIO.StringIO(urllib.urlopen(photohelperurl + underscore + photoUrl).read())
+        img = Image.open(file)
+
+        #with open('/datadrive/prepared_photos_lite/ford_fiesta/ford_fiesta_5031.jpg', 'rb') as source_image:
+        #    source_bytes = source_image.read()
+
+        response = client.detect_labels(
+            Image={
+                'Bytes': img
+            },
+            MaxLabels=10,
+            MinConfidence=0.5
+        )
+
+        # jsonResponse = json.load(response)
+        labels = response["Labels"]
+        formatted_text = json.dumps(labels, indent=4, sort_keys=True)
+        return {'category': formatted_text} #[i[0] for i in query.cursor.fetchall()]}
 
 
 class MakeModel(Resource):
@@ -35,3 +55,16 @@ api.add_resource(MakeModel, '/makemodel/<string:photoUrl>')
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=80)
+
+
+import boto3
+import base64
+import datetime
+import hashlib
+import hmac
+import json
+
+
+
+print('Response body:\n{}'.format(formatted_text))
+

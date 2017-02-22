@@ -40,7 +40,7 @@ class Category(Resource):
         # jsonResponse = json.load(response)
         labels = response["Labels"]
         formatted_text = json.dumps(labels, indent=4, sort_keys=True)
-        return {'category': formatted_text} #[i[0] for i in query.cursor.fetchall()]}
+        return {'category': labels} #[i[0] for i in query.cursor.fetchall()]}
 
 
 class MakeModel(Resource):

@@ -15,16 +15,19 @@ api = Api(app)
 
 
 class Category(Resource):
-    def get(self, photoUrl):
+    def post(self):
         client = boto3.client('rekognition')
         photohelperurl = 'http://az413908.vo.msecnd.net'
         underscore = '_'
+	data = request.data
+	dataDict = json.loads(data)
+	photoUrl = dataDict["photoUrl"]
+	print(photoUrl)
 
-        file = cStringIO.StringIO(urllib.urlopen(photohelperurl + underscore + photoUrl).read())
-        img = Image.open(file)
-
-        #with open('/datadrive/prepared_photos_lite/ford_fiesta/ford_fiesta_5031.jpg', 'rb') as source_image:
-        #    source_bytes = source_image.read()
+        #file = cStringIO.StringIO(urllib.urlopen(photohelperurl + "/" + photoUrl).read())
+        #img = Image.open(file)
+	source_image = urllib.urlopen(photohelperurl + "/" + photoUrl)
+        img = source_image.read()
 
         response = client.detect_labels(
             Image={
@@ -41,7 +44,7 @@ class Category(Resource):
 
 
 class MakeModel(Resource):
-    def get(self, photoUrl):
+    def post(self, photoUrl):
         #conn = e.connect()
         #query = conn.execute("select * from salaries where Department='%s'" % department_name.upper())
         # Query the result and get cursor.Dumping that data to a JSON is looked by extension
@@ -50,7 +53,7 @@ class MakeModel(Resource):
         # We can have PUT,DELETE,POST here. But in our API GET implementation is sufficient
 
 
-api.add_resource(Category, '/category/<string:photoUrl>')
+api.add_resource(Category, '/category')
 api.add_resource(MakeModel, '/makemodel/<string:photoUrl>')
 
 if __name__ == '__main__':

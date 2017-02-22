@@ -1,8 +1,7 @@
 import numpy as np
 import tensorflow as tf
-import sys
 
-imagePath = sys.argv[1]#'/datadrive/prepared_photos/gmc_sierra/gmc_sierra_1674.jpg'
+imagePath = '/datadrive/prepared_photos/lexus_is_250/lexus_is_250_1674.jpg'
 modelFullPath = '/datadrive/tmp/output_graph.pb'
 labelsFullPath = '/datadrive/tmp/output_labels.txt'
 
@@ -49,6 +48,4 @@ def run_inference_on_image():
 
 
 if __name__ == '__main__':
-    for arg in sys.argv:
-        print arg
     run_inference_on_image()

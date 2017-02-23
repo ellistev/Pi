@@ -71,7 +71,7 @@ class Category(Resource):
 
         randomNameForFile = randrange(0, 9999999)
         #imagePath = '/datadrive/uploadedPhotos/{0}.jpg'.format(randomNameForFile)
-        source_image = urllib.urlopen(photohelperurl + "/" + photoUrl)
+        source_image = urllib.urlopen(photohelperurl + "/" + photoUrl, "hello")
         img = source_image.read()
 
         response = client.detect_labels(

@@ -62,7 +62,7 @@ def run_inference_on_image(image_data):
             resultData[human_string] = str(score)
 
         answer = labels[top_k[0]]
-        return json.dumps(resultData)
+        return json.dumps(resultData, indent=4, sort_keys=True)
 
 class Category(Resource):
     def post(self):

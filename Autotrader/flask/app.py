@@ -51,13 +51,18 @@ def run_inference_on_image(image_data):
         f = open(labelsFullPath, 'rb')
         lines = f.readlines()
         labels = [str(w).replace("\n", "") for w in lines]
+
+        resultData = {}
+
+
         for node_id in top_k:
             human_string = labels[node_id]
             score = predictions[node_id]
             print('%s (score = %.5f)' % (human_string, score))
+            resultData[human_string] = score
 
         answer = labels[top_k[0]]
-        return answer
+        return json.dumps(resultData)
 
 class Category(Resource):
     def post(self):

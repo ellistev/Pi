@@ -53,14 +53,14 @@ def run_inference_on_image(image_data):
         lines = f.readlines()
         labels = [str(w).replace("\n", "") for w in lines]
 
-        resultData = {}
+        resultData = []
 
 
         for node_id in top_k:
             human_string = labels[node_id]
             score = predictions[node_id]
             print('%s (score = %.5f)' % (human_string, score))
-            resultData[1] = {'car' : human_string, 'score':score}
+            resultData[node_id] = {'car' : human_string, 'score':score}
 
         answer = labels[top_k[0]]
         resultData.sort(key=operator.attrgetter('score'))

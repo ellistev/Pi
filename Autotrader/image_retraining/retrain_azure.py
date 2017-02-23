@@ -875,6 +875,15 @@ def main(_):
             (datetime.now(), i, validation_accuracy * 100,
              len(validation_bottlenecks)))
 
+      # Every so often, print out how well the graph is training.
+      if (i % FLAGS.save_step_interval) == 0 or is_last_step:
+          output_graph_def = graph_util.convert_variables_to_constants(
+              sess, graph.as_graph_def(), [FLAGS.final_tensor_name])
+          with gfile.FastGFile(FLAGS.output_graph, 'wb') as f:
+              f.write(output_graph_def.SerializeToString())
+          with gfile.FastGFile(FLAGS.output_labels, 'w') as f:
+              f.write('\n'.join(image_lists.keys()) + '\n')
+
   # We've completed all our training, so run a final test evaluation on
   # some new images we haven't used before.
   test_bottlenecks, test_ground_truth, test_filenames = (
@@ -959,6 +968,12 @@ if __name__ == '__main__':
       type=int,
       default=10,
       help='How often to evaluate the training results.'
+  )
+  parser.add_argument(
+      '--save_step_interval',
+      type=int,
+      default=500,
+      help='How often to save the training results.'
   )
   parser.add_argument(
       '--train_batch_size',

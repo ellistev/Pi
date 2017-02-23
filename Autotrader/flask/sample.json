@@ -1,0 +1,66 @@
+{
+  "mlResult": [
+    {
+      "car": "honda fit",
+      "score": "0.5633"
+    },
+    {
+      "car": "dodge caravan",
+      "score": "0.175726"
+    },
+    {
+      "car": "toyota yaris",
+      "score": "0.0523572"
+    },
+    {
+      "car": "nissan versa",
+      "score": "0.0521538"
+    },
+    {
+      "car": "honda cr v",
+      "score": "0.0431873"
+    }
+  ],
+  "category": [
+    {
+      "Confidence": 75.41276550292969,
+      "Name": "Automobile"
+    },
+    {
+      "Confidence": 75.41276550292969,
+      "Name": "Car"
+    },
+    {
+      "Confidence": 75.41276550292969,
+      "Name": "Vehicle"
+    },
+    {
+      "Confidence": 75.28437805175781,
+      "Name": "Caravan"
+    },
+    {
+      "Confidence": 75.28437805175781,
+      "Name": "Van"
+    },
+    {
+      "Confidence": 68.32386016845703,
+      "Name": "Coupe"
+    },
+    {
+      "Confidence": 68.32386016845703,
+      "Name": "Sports Car"
+    },
+    {
+      "Confidence": 66.4803466796875,
+      "Name": "Suv"
+    },
+    {
+      "Confidence": 57.00609588623047,
+      "Name": "Sedan"
+    },
+    {
+      "Confidence": 51.035552978515625,
+      "Name": "Antique Car"
+    }
+  ]
+}

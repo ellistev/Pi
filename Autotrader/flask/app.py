@@ -13,6 +13,7 @@ from random import randrange, uniform
 import numpy as np
 import tensorflow as tf
 import operator
+import GetCategory
 
 app = Flask(__name__)
 api = Api(app)
@@ -20,6 +21,7 @@ api = Api(app)
 #imagePath = '/datadrive/prepared_photos/lexus_is_250/lexus_is_250_1674.jpg'
 modelFullPath = '/datadrive/tmp/modelbackup/output_graphbak.pb'
 labelsFullPath = '/datadrive/tmp/modelbackup/output_labelsbak.txt'
+
 
 def create_graph():
     """Creates a graph from saved GraphDef file and returns a saver."""
@@ -91,11 +93,11 @@ class Category(Resource):
 
         # jsonResponse = json.load(response)
         labels = response["Labels"]
-        formatted_text = json.dumps(labels, indent=4, sort_keys=True)
-
+        #formatted_text = json.dumps(labels, indent=4, sort_keys=True)
+        category = GetCategory(labels)
         mlResult = run_inference_on_image(img)
 
-        return {'mlResult': mlResult, 'category': labels} #[i[0] for i in query.cursor.fetchall()]}
+        return {'mlResult': mlResult, 'category': category} #[i[0] for i in query.cursor.fetchall()]}
 
 
 class MakeModel(Resource):

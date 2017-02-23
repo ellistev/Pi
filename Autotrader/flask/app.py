@@ -105,8 +105,8 @@ class MakeModel(Resource):
         #randomNameForFile = randrange(0, 9999999)
         #imagePath = '/datadrive/uploadedPhotos/{0}.jpg'.format(randomNameForFile)
         #source_image = urllib.urlopen(photohelperurl + "/" + photoUrl)
-        img = data.read()
-        image = data.read()
+        img = data
+        image = data
 
         response = client.detect_labels(
             Image={

@@ -64,7 +64,7 @@ def run_inference_on_image(image_data):
             resultData.append( {'car' : human_string, 'score':str(score)})
 
         answer = labels[top_k[0]]
-
+        sess.close()
         return resultData
 
 class Category(Resource):

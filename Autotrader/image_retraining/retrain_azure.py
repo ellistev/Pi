@@ -440,7 +440,7 @@ def cache_bottlenecks(sess, image_lists, image_dir, bottleneck_dir,
                                  jpeg_data_tensor, bottleneck_tensor)
 
         how_many_bottlenecks += 1
-        if how_many_bottlenecks % 100 == 0:
+        if how_many_bottlenecks % 10000 == 0:
           print(str(how_many_bottlenecks) + ' bottleneck files created.')
 
 

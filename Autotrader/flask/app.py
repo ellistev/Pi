@@ -55,12 +55,13 @@ def run_inference_on_image(image_data):
 
         resultData = []
 
-
+        count = 0
         for node_id in top_k:
             human_string = labels[node_id]
             score = predictions[node_id]
             print('%s (score = %.5f)' % (human_string, score))
-            resultData[node_id] = {'car' : human_string, 'score':score}
+            resultData[count] = {'car' : human_string, 'score':score}
+            count += 1
 
         answer = labels[top_k[0]]
         resultData.sort(key = lambda x: x.score)

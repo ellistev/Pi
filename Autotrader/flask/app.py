@@ -7,27 +7,77 @@ import datetime
 import hashlib
 import hmac
 import json
-import urllib, cStringIO
+import urllib
 from PIL import Image
+from random import randrange, uniform
+import numpy as np
+import tensorflow as tf
 
 app = Flask(__name__)
 api = Api(app)
 
+imagePath = '/datadrive/prepared_photos/lexus_is_250/lexus_is_250_1674.jpg'
+modelFullPath = '/datadrive/tmp/output_graph.pb'
+labelsFullPath = '/datadrive/tmp/output_labels.txt'
+
+def create_graph():
+    """Creates a graph from saved GraphDef file and returns a saver."""
+    # Creates graph from saved graph_def.pb.
+    with tf.gfile.FastGFile(modelFullPath, 'rb') as f:
+        graph_def = tf.GraphDef()
+        graph_def.ParseFromString(f.read())
+        _ = tf.import_graph_def(graph_def, name='')
+
+def run_inference_on_image():
+    answer = None
+
+    if not tf.gfile.Exists(imagePath):
+        tf.logging.fatal('File does not exist %s', imagePath)
+        return answer
+
+    image_data = tf.gfile.FastGFile(imagePath, 'rb').read()
+
+    # Creates graph from saved GraphDef.
+    create_graph()
+
+    with tf.Session() as sess:
+
+        softmax_tensor = sess.graph.get_tensor_by_name('final_result:0')
+        predictions = sess.run(softmax_tensor,
+                               {'DecodeJpeg/contents:0': image_data})
+        predictions = np.squeeze(predictions)
+
+        top_k = predictions.argsort()[-5:][::-1]  # Getting top 5 predictions
+        f = open(labelsFullPath, 'rb')
+        lines = f.readlines()
+        labels = [str(w).replace("\n", "") for w in lines]
+        for node_id in top_k:
+            human_string = labels[node_id]
+            score = predictions[node_id]
+            print('%s (score = %.5f)' % (human_string, score))
+
+        answer = labels[top_k[0]]
+        return answer
 
 class Category(Resource):
     def post(self):
         client = boto3.client('rekognition')
         photohelperurl = 'http://az413908.vo.msecnd.net'
         underscore = '_'
-	data = request.data
-	dataDict = json.loads(data)
-	photoUrl = dataDict["photoUrl"]
-	print(photoUrl)
+        data = request.data
+        dataDict = json.loads(data)
+        photoUrl = dataDict["photoUrl"]
+        print(photoUrl)
 
         #file = cStringIO.StringIO(urllib.urlopen(photohelperurl + "/" + photoUrl).read())
         #img = Image.open(file)
-	source_image = urllib.urlopen(photohelperurl + "/" + photoUrl)
+        source_image = urllib.urlopen(photohelperurl + "/" + photoUrl)
         img = source_image.read()
+
+        # randrange gives you an integral value
+        randomNameForFile = randrange(0, 9999999)
+        imagePath = '/datadrive/uploadedPhotos/{0}.jpg'.format(randomNameForFile)
+        urllib.request.urlretrieve(photohelperurl + "/" + photoUrl, imagePath)
 
         response = client.detect_labels(
             Image={
@@ -40,7 +90,10 @@ class Category(Resource):
         # jsonResponse = json.load(response)
         labels = response["Labels"]
         formatted_text = json.dumps(labels, indent=4, sort_keys=True)
-        return {'category': labels} #[i[0] for i in query.cursor.fetchall()]}
+
+        mlResult = run_inference_on_image()
+
+        return {'mlResult': mlResult, 'category': labels} #[i[0] for i in query.cursor.fetchall()]}
 
 
 class MakeModel(Resource):
@@ -59,15 +112,4 @@ api.add_resource(MakeModel, '/makemodel/<string:photoUrl>')
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=80)
 
-
-import boto3
-import base64
-import datetime
-import hashlib
-import hmac
-import json
-
-
-
-print('Response body:\n{}'.format(formatted_text))
 

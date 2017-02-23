@@ -32,7 +32,7 @@ def GetCategory(labels):
     result = {"Category": "0", "Confidence": float('1.0') / 100}
     for object in labels:
         switchResult = SwitchCategory(object['Name'])
-        if switchResult != '0' and float(object['Confidence'])/100 > 0.75 :
+        if switchResult != '0' and float(object['Confidence'])/100 > 0.60 :
             result = {"Category": SwitchCategory(object['Name']), "Confidence": float(object['Confidence']) / 100}
             break;
 
@@ -46,45 +46,57 @@ def GetCategory(labels):
 
 if __name__ == '__main__':
     labels= [
-            {
-              "Confidence": 75.41276550292969,
-              "Name": "Automobile"
-            },
-            {
-              "Confidence": 75.41276550292969,
-              "Name": "Car"
-            },
-            {
-              "Confidence": 75.41276550292969,
-              "Name": "Vehicle"
-            },
-            {
-              "Confidence": 75.28437805175781,
-              "Name": "Caravan"
-            },
-            {
-              "Confidence": 75.28437805175781,
-              "Name": "Van"
-            },
-            {
-              "Confidence": 68.32386016845703,
-              "Name": "Coupe"
-            },
-            {
-              "Confidence": 68.32386016845703,
-              "Name": "Sports Car"
-            },
-            {
-              "Confidence": 66.4803466796875,
-              "Name": "far"
-            },
-            {
-              "Confidence": 57.00609588623047,
-              "Name": "Sedan"
-            },
-            {
-              "Confidence": 51.035552978515625,
-              "Name": "Antique Car"
-            }
+        {
+            "Confidence": 73.99286651611328,
+            "Name": "Automobile"
+        },
+        {
+            "Confidence": 73.99286651611328,
+            "Name": "Car"
+        },
+        {
+            "Confidence": 73.99286651611328,
+            "Name": "Coupe"
+        },
+        {
+            "Confidence": 73.99286651611328,
+            "Name": "Sports Car"
+        },
+        {
+            "Confidence": 73.99286651611328,
+            "Name": "Vehicle"
+        },
+        {
+            "Confidence": 73.6723861694336,
+            "Name": "Suv"
+        },
+        {
+            "Confidence": 67.18011474609375,
+            "Name": "Sedan"
+        },
+        {
+            "Confidence": 54.11397171020508,
+            "Name": "Bumper"
+        },
+        {
+            "Confidence": 52.00517272949219,
+            "Name": "Engine"
+        },
+        {
+            "Confidence": 52.00517272949219,
+            "Name": "Machine"
+        },
+        {
+            "Confidence": 52.00517272949219,
+            "Name": "Motor"
+        },
+        {
+            "Confidence": 51.60227966308594,
+            "Name": "Caravan"
+        },
+        {
+            "Confidence": 51.60227966308594,
+            "Name": "Van"
+        }
           ]
     print(GetCategory(labels))

@@ -85,7 +85,7 @@ class Category(Resource):
 
         response = client.detect_labels(
             Image={
-                'Bytes': image
+                'Bytes': img
             },
             MaxLabels=10,
             MinConfidence=0.5

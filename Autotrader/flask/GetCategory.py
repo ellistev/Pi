@@ -3,14 +3,28 @@ import json
 def SwitchCategory(x):
     if x == 'Car':
         return 'Car'
-    if x == 'Truck':
-        return 'Truck'
+    if x == 'Atv':
+        return 'ATV'
+    if x == 'Rv':
+        return 'RV'
+    if x == 'Suv':
+        return 'SUV'
     if x == 'Boat':
         return 'Boat'
+    if x == 'Yacht':
+        return 'Yacht'
+    if x == 'Jet Ski':
+        return 'Watercraft'
+    if x == 'Watercraft':
+        return 'Watercraft'
+    if x == 'Trailer Truck':
+        return 'Heavy Truck'
+    if x == 'Motorcycle':
+        return 'Motorcycle'
+    if x == 'Pickup Truck':
+        return 'Truck'
     if x == 'Tractor':
         return 'Tractor'
-    if x == 'Semi':
-        return 'Heavy'
     return '0'
 
 def GetCategory(labels):

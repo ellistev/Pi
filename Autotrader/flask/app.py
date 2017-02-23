@@ -28,14 +28,14 @@ def create_graph():
         graph_def.ParseFromString(f.read())
         _ = tf.import_graph_def(graph_def, name='')
 
-def run_inference_on_image(imagePath):
+def run_inference_on_image(image_data):
     answer = None
 
-    if not tf.gfile.Exists(imagePath):
-        tf.logging.fatal('File does not exist %s', imagePath)
-        return answer
+    #if not tf.gfile.Exists(imagePath):
+    #    tf.logging.fatal('File does not exist %s', imagePath)
+    #    return answer
 
-    image_data = tf.gfile.FastGFile(imagePath, 'rb').read()
+    #image_data = tf.gfile.FastGFile(imagePath, 'rb').read()
 
     # Creates graph from saved GraphDef.
     create_graph()
@@ -70,8 +70,8 @@ class Category(Resource):
         print(photoUrl)
 
         randomNameForFile = randrange(0, 9999999)
-        imagePath = '/datadrive/uploadedPhotos/{0}.jpg'.format(randomNameForFile)
-        source_image = urllib.urlopen(photohelperurl + "/" + photoUrl, imagePath)
+        #imagePath = '/datadrive/uploadedPhotos/{0}.jpg'.format(randomNameForFile)
+        source_image = urllib.urlopen(photohelperurl + "/" + photoUrl)
         img = source_image.read()
 
         response = client.detect_labels(
@@ -86,7 +86,7 @@ class Category(Resource):
         labels = response["Labels"]
         formatted_text = json.dumps(labels, indent=4, sort_keys=True)
 
-        mlResult = run_inference_on_image(imagePath)
+        mlResult = run_inference_on_image("", img)
 
         return {'mlResult': mlResult, 'category': labels} #[i[0] for i in query.cursor.fetchall()]}
 

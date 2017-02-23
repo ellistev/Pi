@@ -63,7 +63,7 @@ def run_inference_on_image(image_data):
             resultData[node_id] = {'car' : human_string, 'score':score}
 
         answer = labels[top_k[0]]
-        resultData.sort(key=operator.attrgetter('score'))
+        resultData.sort(key = lambda x: x.score)
         return resultData
 
 class Category(Resource):

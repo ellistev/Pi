@@ -59,9 +59,10 @@ def run_inference_on_image(image_data):
             human_string = labels[node_id]
             score = predictions[node_id]
             print('%s (score = %.5f)' % (human_string, score))
-            resultData[human_string] = str(score)
+            resultData[1] = {'car' : human_string, 'score':score}
 
         answer = labels[top_k[0]]
+        resultData.sort(key=lambda x: x.score)
         return resultData
 
 class Category(Resource):

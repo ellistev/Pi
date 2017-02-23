@@ -29,12 +29,18 @@ def SwitchCategory(x):
 
 def GetCategory(labels):
     #json_object = json.load(labels)
+    result = {"Category": "0", "Confidence": float('1.0') / 100}
     for object in labels:
-        if SwitchCategory(object['Name']) != '0' and float(object['Confidence'])/100 > 0.75 :
-            return { "Category" : SwitchCategory(object['Name']), "Confidence" : float(object['Confidence'])/100}
+        switchResult = SwitchCategory(object['Name'])
+        if switchResult != '0' and float(object['Confidence'])/100 > 0.75 :
+            result = {"Category": SwitchCategory(object['Name']), "Confidence": float(object['Confidence']) / 100}
+            break;
+
+        #return { "Category" : SwitchCategory(object['Name']), "Confidence" : float(object['Confidence'])/100}
         #print(object['Name'])
         #print(object['Confidence'])
-
+    if result['Category'] != '0':
+        return result
     return { "Category" : "Not Sure", "Confidence" : float('1.0')}
 
 
@@ -70,7 +76,7 @@ if __name__ == '__main__':
             },
             {
               "Confidence": 66.4803466796875,
-              "Name": "Suv"
+              "Name": "far"
             },
             {
               "Confidence": 57.00609588623047,

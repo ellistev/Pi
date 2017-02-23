@@ -12,6 +12,7 @@ from PIL import Image
 from random import randrange, uniform
 import numpy as np
 import tensorflow as tf
+import operator
 
 app = Flask(__name__)
 api = Api(app)
@@ -62,7 +63,7 @@ def run_inference_on_image(image_data):
             resultData[1] = {'car' : human_string, 'score':score}
 
         answer = labels[top_k[0]]
-        resultData.sort(key=lambda x: x.score)
+        resultData.sort(key=operator.attrgetter('score'))
         return resultData
 
 class Category(Resource):

@@ -69,14 +69,15 @@ class Category(Resource):
         photoUrl = dataDict["photoUrl"]
         print(photoUrl)
 
-        randomNameForFile = randrange(0, 9999999)
+        #randomNameForFile = randrange(0, 9999999)
         #imagePath = '/datadrive/uploadedPhotos/{0}.jpg'.format(randomNameForFile)
-        source_image = urllib.urlopen(photohelperurl + "/" + photoUrl, "hello")
+        source_image = urllib.urlopen(photohelperurl + "/" + photoUrl)
         img = source_image.read()
+        image = source_image.read()
 
         response = client.detect_labels(
             Image={
-                'Bytes': img
+                'Bytes': image
             },
             MaxLabels=10,
             MinConfidence=0.5

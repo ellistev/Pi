@@ -127,10 +127,10 @@ class MakeModel(Resource):
         # jsonResponse = json.load(response)
         labels = response["Labels"]
         formatted_text = json.dumps(labels, indent=4, sort_keys=True)
-
+        category = GetCategory(labels)
         mlResult = run_inference_on_image(img)
 
-        return {'mlResult': mlResult, 'category': labels} #[i[0] for i in query.cursor.fetchall()]}
+        return {'mlResult': mlResult, 'category': category} #[i[0] for i in query.cursor.fetchall()]}
 
 
 

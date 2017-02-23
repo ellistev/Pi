@@ -17,11 +17,11 @@ def GetCategory(labels):
     #json_object = json.load(labels)
     for object in labels:
         if SwitchCategory(object['Name']) != '0' and float(object['Confidence'])/100 > 0.75 :
-            return { 'Category' : SwitchCategory(object['Name']), 'Confidence' : float(object['Confidence'])/100}
+            return { "Category" : SwitchCategory(object['Name']), "Confidence" : float(object['Confidence'])/100}
         #print(object['Name'])
         #print(object['Confidence'])
 
-    return { 'Category' : 'Not Sure', 'Confidence' : float('1.0')}
+    return { "Category" : "Not Sure", "Confidence" : float('1.0')}
 
 
 if __name__ == '__main__':

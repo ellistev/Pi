@@ -17,8 +17,8 @@ app = Flask(__name__)
 api = Api(app)
 
 #imagePath = '/datadrive/prepared_photos/lexus_is_250/lexus_is_250_1674.jpg'
-modelFullPath = '/datadrive/tmp/output_graph.pb'
-labelsFullPath = '/datadrive/tmp/output_labels.txt'
+modelFullPath = '/datadrive/tmp/modelbackup/output_graphbak.pb'
+labelsFullPath = '/datadrive/tmp/modelbackup/output_labelsbak.txt'
 
 def create_graph():
     """Creates a graph from saved GraphDef file and returns a saver."""

@@ -86,7 +86,7 @@ class Category(Resource):
         labels = response["Labels"]
         formatted_text = json.dumps(labels, indent=4, sort_keys=True)
 
-        mlResult = run_inference_on_image("", img)
+        mlResult = run_inference_on_image(img)
 
         return {'mlResult': mlResult, 'category': labels} #[i[0] for i in query.cursor.fetchall()]}
 

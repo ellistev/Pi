@@ -16,7 +16,7 @@ import tensorflow as tf
 app = Flask(__name__)
 api = Api(app)
 
-imagePath = '/datadrive/prepared_photos/lexus_is_250/lexus_is_250_1674.jpg'
+#imagePath = '/datadrive/prepared_photos/lexus_is_250/lexus_is_250_1674.jpg'
 modelFullPath = '/datadrive/tmp/output_graph.pb'
 labelsFullPath = '/datadrive/tmp/output_labels.txt'
 
@@ -28,7 +28,7 @@ def create_graph():
         graph_def.ParseFromString(f.read())
         _ = tf.import_graph_def(graph_def, name='')
 
-def run_inference_on_image():
+def run_inference_on_image(imagePath):
     answer = None
 
     if not tf.gfile.Exists(imagePath):
@@ -69,12 +69,10 @@ class Category(Resource):
         photoUrl = dataDict["photoUrl"]
         print(photoUrl)
 
-        #file = cStringIO.StringIO(urllib.urlopen(photohelperurl + "/" + photoUrl).read())
         randomNameForFile = randrange(0, 9999999)
         imagePath = '/datadrive/uploadedPhotos/{0}.jpg'.format(randomNameForFile)
-	source_image = urllib.urlopen(photohelperurl + "/" + photoUrl, imagePath)
-	img = source_image.read()
-        #urllib.urlopen(photohelperurl + "/" + photoUrl, imagePath)
+        source_image = urllib.urlopen(photohelperurl + "/" + photoUrl, imagePath)
+        img = source_image.read()
 
         response = client.detect_labels(
             Image={
@@ -88,7 +86,7 @@ class Category(Resource):
         labels = response["Labels"]
         formatted_text = json.dumps(labels, indent=4, sort_keys=True)
 
-        mlResult = run_inference_on_image()
+        mlResult = run_inference_on_image(imagePath)
 
         return {'mlResult': mlResult, 'category': labels} #[i[0] for i in query.cursor.fetchall()]}
 

@@ -70,14 +70,11 @@ class Category(Resource):
         print(photoUrl)
 
         #file = cStringIO.StringIO(urllib.urlopen(photohelperurl + "/" + photoUrl).read())
-        #img = Image.open(file)
-        source_image = urllib.urlopen(photohelperurl + "/" + photoUrl)
-        img = source_image.read()
-
-        # randrange gives you an integral value
         randomNameForFile = randrange(0, 9999999)
         imagePath = '/datadrive/uploadedPhotos/{0}.jpg'.format(randomNameForFile)
-        urllib.request.urlretrieve(photohelperurl + "/" + photoUrl, imagePath)
+	source_image = urllib.urlopen(photohelperurl + "/" + photoUrl, imagePath)
+	img = source_image.read()
+        #urllib.urlopen(photohelperurl + "/" + photoUrl, imagePath)
 
         response = client.detect_labels(
             Image={

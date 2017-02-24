@@ -2,9 +2,9 @@ import numpy as np
 import tensorflow as tf
 import sys
 
-imagePath = sys.argv[1]#'/datadrive/prepared_photos/gmc_sierra/gmc_sierra_1674.jpg'
-modelFullPath = '/datadrive/tmp/output_graph.pb'
-labelsFullPath = '/datadrive/tmp/output_labels.txt'
+imagePath = sys.argv[3] #'/datadrive/prepared_photos/gmc_sierra/gmc_sierra_1674.jpg'
+modelFullPath = sys.argv[1] # '/datadrive/modelbackup10000/output_graph25.pb'
+labelsFullPath = sys.argv[2] #'/datadrive/modelbackup10000/output_labels25.txt'
 
 
 def create_graph():

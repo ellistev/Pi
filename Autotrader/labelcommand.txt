@@ -1,1 +1,4 @@
+linux
  sudo python labelimage.py /datadrive/tmp/output_graph.pb /datadrive/tmp/output_labels.txt /datadrive/prepared_photos/chevrolet_cavalier/chevrolet_cavalier_123.jpg
+windows
+python labelimage.py d:\Code\Pi\Autotrader\finalmodel\output_graphtrained.pb d:\Code\Pi\Autotrader\finalmodel\output_labelstrained.txt d:\Code\prepared_images\ford_mustang\ford_mustang_0.jpg

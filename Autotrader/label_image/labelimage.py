@@ -49,6 +49,4 @@ def run_inference_on_image():
 
 
 if __name__ == '__main__':
-    for arg in sys.argv:
-        print arg
     run_inference_on_image()

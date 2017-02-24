@@ -108,7 +108,7 @@ class MakeModel(Resource):
         photohelperurl = 'http://az413908.vo.msecnd.net'
         underscore = '_'
         data = request.data
-        print("data length is" + len(data))
+
         #dataDict = json.loads(data)
         #photoUrl = dataDict["photoUrl"]
         #print(photoUrl)

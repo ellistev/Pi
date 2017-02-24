@@ -283,7 +283,8 @@ def maybe_download_and_extract():
   If the pretrained model we're using doesn't already exist, this function
   downloads it from the TensorFlow.org website and unpacks it into a directory.
   """
-  dest_directory = FLAGS.model_dir
+
+  """dest_directory = FLAGS.model_dir
   if not os.path.exists(dest_directory):
     os.makedirs(dest_directory)
   filename = DATA_URL.split('/')[-1]
@@ -302,7 +303,7 @@ def maybe_download_and_extract():
     print()
     statinfo = os.stat(filepath)
     print('Successfully downloaded', filename, statinfo.st_size, 'bytes.')
-  tarfile.open(filepath, 'r:gz').extractall(dest_directory)
+  tarfile.open(filepath, 'r:gz').extractall(dest_directory)"""
 
 
 def ensure_dir_exists(dir_name):

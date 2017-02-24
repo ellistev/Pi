@@ -246,7 +246,7 @@ def create_inception_graph():
   """
   with tf.Session() as sess:
     model_filename = os.path.join(
-        FLAGS.model_dir, 'classify_image_graph_def.pb')
+        FLAGS.model_dir, FLAGS.model_filename)
     with gfile.FastGFile(model_filename, 'rb') as f:
       graph_def = tf.GraphDef()
       graph_def.ParseFromString(f.read())
@@ -1017,6 +1017,16 @@ if __name__ == '__main__':
       '--model_dir',
       type=str,
       default='/datadrive/tmp/imagenet',
+      help="""\
+      Path to classify_image_graph_def.pb,
+      imagenet_synset_to_human_label_map.txt, and
+      imagenet_2012_challenge_label_map_proto.pbtxt.\
+      """
+  )
+  parser.add_argument(
+      '--model_filename',
+      type=str,
+      default='classify_image_graph_def.pb',
       help="""\
       Path to classify_image_graph_def.pb,
       imagenet_synset_to_human_label_map.txt, and

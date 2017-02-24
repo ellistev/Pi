@@ -19,8 +19,10 @@ app = Flask(__name__)
 api = Api(app)
 
 #imagePath = '/datadrive/prepared_photos/lexus_is_250/lexus_is_250_1674.jpg'
-modelFullPath = '/datadrive/tmp/modelbackup/output_graphbak.pb'
-labelsFullPath = '/datadrive/tmp/modelbackup/output_labelsbak.txt'
+#modelFullPath = '/datadrive/tmp/modelbackup/output_graphbak.pb'
+#labelsFullPath = '/datadrive/tmp/modelbackup/output_labelsbak.txt'
+modelFullPath = '/datadrive/tmp/output_graph.pb'
+labelsFullPath = '/datadrive/tmp/output_labels.txt'
 
 
 def create_graph():
@@ -106,6 +108,7 @@ class MakeModel(Resource):
         photohelperurl = 'http://az413908.vo.msecnd.net'
         underscore = '_'
         data = request.data
+        print("data length is" + len(data))
         #dataDict = json.loads(data)
         #photoUrl = dataDict["photoUrl"]
         #print(photoUrl)

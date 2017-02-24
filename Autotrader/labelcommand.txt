@@ -1,0 +1,1 @@
+ sudo python labelimage.py /datadrive/tmp/output_graph.pb /datadrive/tmp/output_labels.txt /datadrive/prepared_photos/chevrolet_cavalier/chevrolet_cavalier_123.jpg

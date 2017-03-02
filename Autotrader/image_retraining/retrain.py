@@ -246,7 +246,7 @@ def create_inception_graph():
   """
   with tf.Session() as sess:
     model_filename = os.path.join(
-        FLAGS.model_dir, 'classify_image_graph_def.pb')
+        FLAGS.model_dir, FLAGS.model_filename)
     with gfile.FastGFile(model_filename, 'rb') as f:
       graph_def = tf.GraphDef()
       graph_def.ParseFromString(f.read())
@@ -283,7 +283,8 @@ def maybe_download_and_extract():
   If the pretrained model we're using doesn't already exist, this function
   downloads it from the TensorFlow.org website and unpacks it into a directory.
   """
-  dest_directory = FLAGS.model_dir
+
+  """dest_directory = FLAGS.model_dir
   if not os.path.exists(dest_directory):
     os.makedirs(dest_directory)
   filename = DATA_URL.split('/')[-1]
@@ -302,7 +303,7 @@ def maybe_download_and_extract():
     print()
     statinfo = os.stat(filepath)
     print('Successfully downloaded', filename, statinfo.st_size, 'bytes.')
-  tarfile.open(filepath, 'r:gz').extractall(dest_directory)
+  tarfile.open(filepath, 'r:gz').extractall(dest_directory)"""
 
 
 def ensure_dir_exists(dir_name):
@@ -440,7 +441,7 @@ def cache_bottlenecks(sess, image_lists, image_dir, bottleneck_dir,
                                  jpeg_data_tensor, bottleneck_tensor)
 
         how_many_bottlenecks += 1
-        if how_many_bottlenecks % 100 == 0:
+        if how_many_bottlenecks % 10000 == 0:
           print(str(how_many_bottlenecks) + ' bottleneck files created.')
 
 
@@ -875,6 +876,15 @@ def main(_):
             (datetime.now(), i, validation_accuracy * 100,
              len(validation_bottlenecks)))
 
+      # Every so often, print out how well the graph is training.
+      if (i % FLAGS.save_step_interval) == 0 or is_last_step:
+          output_graph_def = graph_util.convert_variables_to_constants(
+              sess, graph.as_graph_def(), [FLAGS.final_tensor_name])
+          with gfile.FastGFile(FLAGS.output_graph, 'wb') as f:
+              f.write(output_graph_def.SerializeToString())
+          with gfile.FastGFile(FLAGS.output_labels, 'w') as f:
+              f.write('\n'.join(image_lists.keys()) + '\n')
+
   # We've completed all our training, so run a final test evaluation on
   # some new images we haven't used before.
   test_bottlenecks, test_ground_truth, test_filenames = (
@@ -915,19 +925,19 @@ if __name__ == '__main__':
   parser.add_argument(
       '--output_graph',
       type=str,
-      default='/datadrive/tmp/output_graph.pb',
+      default='d:/tmp/output_graph.pb',
       help='Where to save the trained graph.'
   )
   parser.add_argument(
       '--output_labels',
       type=str,
-      default='/datadrive/tmp/output_labels.txt',
+      default='d:/tmp/output_labels.txt',
       help='Where to save the trained graph\'s labels.'
   )
   parser.add_argument(
       '--summaries_dir',
       type=str,
-      default='/datadrive/tmp/retrain_logs',
+      default='d:/tmp/retrain_logs',
       help='Where to save summary logs for TensorBoard.'
   )
   parser.add_argument(
@@ -959,6 +969,12 @@ if __name__ == '__main__':
       type=int,
       default=10,
       help='How often to evaluate the training results.'
+  )
+  parser.add_argument(
+      '--save_step_interval',
+      type=int,
+      default=500,
+      help='How often to save the training results.'
   )
   parser.add_argument(
       '--train_batch_size',
@@ -1001,7 +1017,17 @@ if __name__ == '__main__':
   parser.add_argument(
       '--model_dir',
       type=str,
-      default='/datadrive/tmp/imagenet',
+      default='d:/tmp/imagenet',
+      help="""\
+      Path to classify_image_graph_def.pb,
+      imagenet_synset_to_human_label_map.txt, and
+      imagenet_2012_challenge_label_map_proto.pbtxt.\
+      """
+  )
+  parser.add_argument(
+      '--model_filename',
+      type=str,
+      default='classify_image_graph_def.pb',
       help="""\
       Path to classify_image_graph_def.pb,
       imagenet_synset_to_human_label_map.txt, and
@@ -1011,7 +1037,7 @@ if __name__ == '__main__':
   parser.add_argument(
       '--bottleneck_dir',
       type=str,
-      default='/datadrive/tmp/bottleneck',
+      default='d:/tmp/bottleneck',
       help='Path to cache bottleneck layer values as files.'
   )
   parser.add_argument(

@@ -6,7 +6,7 @@ heavy
 atv
 snow
 motorcycle
-heavy equipment
+heavyequipment
 trailers
 rv
 commercial

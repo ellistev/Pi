@@ -1,7 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f3d126bb-bffa-4034-bb25-67a074c7a5e3" name="Default" comment="" />
+    <list default="true" id="f3d126bb-bffa-4034-bb25-67a074c7a5e3" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Autotrader/npvmodel/tf_label_image_example.exp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/RNN/input.txt" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Autotrader/label_image/get_images_fast.py" afterPath="$PROJECT_DIR$/Autotrader/label_image/get_images_fast.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Autotrader/npvmodel/output_labels.txt" afterPath="$PROJECT_DIR$/Autotrader/npvmodel/output_labels.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RNN/rnn.py" afterPath="$PROJECT_DIR$/RNN/rnn.py" />
+    </list>
     <ignored path="Pi.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path=".idea/dataSources.local.xml" />
@@ -24,55 +31,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="rekognize.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Autotrader/rekognize.py">
+      <file leaf-file-name="rnn.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/RNN/rnn.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="452">
-              <caret line="51" column="49" lean-forward="false" selection-start-line="51" selection-start-column="49" selection-end-line="51" selection-end-column="49" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="app.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Autotrader/flask/app.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-867">
-              <caret line="20" column="55" lean-forward="false" selection-start-line="20" selection-start-column="55" selection-end-line="20" selection-end-column="55" />
-              <folding>
-                <element signature="e#0#32#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="GetCategory.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Autotrader/flask/GetCategory.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="374">
-              <caret line="22" column="27" lean-forward="false" selection-start-line="22" selection-start-column="27" selection-end-line="22" selection-end-column="27" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="get_images_fast.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Autotrader/label_image/get_images_fast.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="17" column="0" lean-forward="true" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
-              <folding>
-                <element signature="e#0#25#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="retrain.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Autotrader/image_retraining/retrain.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="296">
-              <caret line="939" column="14" lean-forward="false" selection-start-line="939" selection-start-column="14" selection-end-line="939" selection-end-column="14" />
+            <state relative-caret-position="17">
+              <caret line="43" column="11" lean-forward="false" selection-start-line="43" selection-start-column="11" selection-end-line="43" selection-end-column="52" />
               <folding />
             </state>
           </provider>
@@ -81,30 +44,28 @@
       <file leaf-file-name="retrain_local.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Autotrader/image_retraining/retrain_local.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="296">
-              <caret line="945" column="15" lean-forward="false" selection-start-line="945" selection-start-column="15" selection-end-line="945" selection-end-column="15" />
+            <state relative-caret-position="663">
+              <caret line="952" column="60" lean-forward="false" selection-start-line="952" selection-start-column="60" selection-end-line="952" selection-end-column="60" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="labelimage.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Autotrader/label_image/labelimage.py">
+      <file leaf-file-name="get_images_fast.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Autotrader/label_image/get_images_fast.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="5" column="77" lean-forward="false" selection-start-line="5" selection-start-column="77" selection-end-line="5" selection-end-column="77" />
-              <folding>
-                <element signature="e#0#18#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="272">
+              <caret line="17" column="0" lean-forward="true" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="retrain_azure.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Autotrader/image_retraining/retrain_azure.py">
+      <file leaf-file-name="labelimage.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Autotrader/label_image/labelimage.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
-              <caret line="21" column="69" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="1087" selection-end-column="0" />
+            <state relative-caret-position="51">
+              <caret line="5" column="77" lean-forward="false" selection-start-line="5" selection-start-column="77" selection-end-line="5" selection-end-column="77" />
               <folding />
             </state>
           </provider>
@@ -116,6 +77,8 @@
     <findStrings>
       <find>datadri</find>
       <find>4000</find>
+      <find>3</find>
+      <find>layers</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -128,6 +91,7 @@
         <option value="$PROJECT_DIR$/Autotrader/image_retraining/retrain.py" />
         <option value="$PROJECT_DIR$/Autotrader/label_image/labelimage.py" />
         <option value="$PROJECT_DIR$/Autotrader/image_retraining/retrain_local.py" />
+        <option value="$PROJECT_DIR$/RNN/rnn.py" />
         <option value="$PROJECT_DIR$/Autotrader/label_image/get_images_fast.py" />
       </list>
     </option>
@@ -163,6 +127,7 @@
     </navigator>
     <panes>
       <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -209,7 +174,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -537,7 +501,7 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Autotrader/rekognize.py">
+    <entry file="file://$PROJECT_DIR$/RNN/rnn.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -549,33 +513,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Autotrader/rekognize.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Autotrader/rekognize.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="452">
-          <caret line="51" column="49" lean-forward="false" selection-start-line="51" selection-start-column="49" selection-end-line="51" selection-end-column="49" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Autotrader/flask/app.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-867">
+        <state relative-caret-position="85">
           <caret line="20" column="55" lean-forward="false" selection-start-line="20" selection-start-column="55" selection-end-line="20" selection-end-column="55" />
-          <folding>
-            <element signature="e#0#32#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -583,7 +528,52 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="374">
           <caret line="22" column="27" lean-forward="false" selection-start-line="22" selection-start-column="27" selection-end-line="22" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Autotrader/rekognize.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Autotrader/rekognize.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Autotrader/rekognize.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Autotrader/rekognize.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="748">
+          <caret line="51" column="49" lean-forward="false" selection-start-line="51" selection-start-column="49" selection-end-line="51" selection-end-column="49" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Autotrader/flask/GetCategory.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="22" column="27" lean-forward="false" selection-start-line="22" selection-start-column="27" selection-end-line="22" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Autotrader/image_retraining/retrain.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15606">
+          <caret line="939" column="14" lean-forward="false" selection-start-line="939" selection-start-column="14" selection-end-line="939" selection-end-column="14" />
         </state>
       </provider>
     </entry>
@@ -591,43 +581,45 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="357">
           <caret line="21" column="69" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="1087" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Autotrader/image_retraining/retrain.py">
+    <entry file="file://$PROJECT_DIR$/Autotrader/flask/app.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="296">
-          <caret line="939" column="14" lean-forward="false" selection-start-line="939" selection-start-column="14" selection-end-line="939" selection-end-column="14" />
-          <folding />
+        <state relative-caret-position="17">
+          <caret line="20" column="55" lean-forward="false" selection-start-line="20" selection-start-column="55" selection-end-line="20" selection-end-column="55" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Autotrader/label_image/labelimage.py">
+    <entry file="file://$PROJECT_DIR$/RNN/rnn.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="77" lean-forward="false" selection-start-line="5" selection-start-column="77" selection-end-line="5" selection-end-column="77" />
-          <folding>
-            <element signature="e#0#18#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="17">
+          <caret line="43" column="11" lean-forward="false" selection-start-line="43" selection-start-column="11" selection-end-line="43" selection-end-column="52" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Autotrader/image_retraining/retrain_local.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="296">
-          <caret line="945" column="15" lean-forward="false" selection-start-line="945" selection-start-column="15" selection-end-line="945" selection-end-column="15" />
+        <state relative-caret-position="663">
+          <caret line="952" column="60" lean-forward="false" selection-start-line="952" selection-start-column="60" selection-end-line="952" selection-end-column="60" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Autotrader/label_image/get_images_fast.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
+        <state relative-caret-position="272">
           <caret line="17" column="0" lean-forward="true" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#25#0" expanded="true" />
-          </folding>
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Autotrader/label_image/labelimage.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="5" column="77" lean-forward="false" selection-start-line="5" selection-start-column="77" selection-end-line="5" selection-end-column="77" />
+          <folding />
         </state>
       </provider>
     </entry>

@@ -284,7 +284,7 @@ def maybe_download_and_extract():
   downloads it from the TensorFlow.org website and unpacks it into a directory.
   """
 
-  """dest_directory = FLAGS.model_dir
+  dest_directory = FLAGS.model_dir
   if not os.path.exists(dest_directory):
     os.makedirs(dest_directory)
   filename = DATA_URL.split('/')[-1]
@@ -303,7 +303,7 @@ def maybe_download_and_extract():
     print()
     statinfo = os.stat(filepath)
     print('Successfully downloaded', filename, statinfo.st_size, 'bytes.')
-  tarfile.open(filepath, 'r:gz').extractall(dest_directory)"""
+  tarfile.open(filepath, 'r:gz').extractall(dest_directory)
 
 
 def ensure_dir_exists(dir_name):
@@ -925,19 +925,19 @@ if __name__ == '__main__':
   parser.add_argument(
       '--output_graph',
       type=str,
-      default='d:/tmp/output_graph.pb',
+      default='c:/tmp/output_graph.pb',
       help='Where to save the trained graph.'
   )
   parser.add_argument(
       '--output_labels',
       type=str,
-      default='d:/tmp/output_labels.txt',
+      default='c:/tmp/output_labels.txt',
       help='Where to save the trained graph\'s labels.'
   )
   parser.add_argument(
       '--summaries_dir',
       type=str,
-      default='d:/tmp/retrain_logs',
+      default='c:/tmp/retrain_logs',
       help='Where to save summary logs for TensorBoard.'
   )
   parser.add_argument(
@@ -1017,7 +1017,7 @@ if __name__ == '__main__':
   parser.add_argument(
       '--model_dir',
       type=str,
-      default='d:/tmp/imagenet',
+      default='c:/tmp/imagenet',
       help="""\
       Path to classify_image_graph_def.pb,
       imagenet_synset_to_human_label_map.txt, and
@@ -1037,7 +1037,7 @@ if __name__ == '__main__':
   parser.add_argument(
       '--bottleneck_dir',
       type=str,
-      default='d:/tmp/bottleneck',
+      default='c:/tmp/bottleneck',
       help='Path to cache bottleneck layer values as files.'
   )
   parser.add_argument(
